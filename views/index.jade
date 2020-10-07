@@ -1,0 +1,15 @@
+doctype html
+html
+    head
+        title Socket.IO chat
+    body
+        div#data
+            #{data}
+        script(src='https://cdn.socket.io/socket.io-1.2.0.js')
+        script(src='https://code.jquery.com/jquery-1.11.1.js')
+        script.
+            var socket = io();
+            socket.on('chat message', function(msg){
+                document.getElementById('data').append(msg);
+                window.scrollTo(0, document.body.scrollHeight);
+            });
